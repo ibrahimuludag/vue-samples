@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Attribute Binding</title>
+        <style type="text/css">
+            .loading {
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <p>
+                <input type="text" v-model="newTitle" />
+                <button @click="changeTitle" :title="title" >Change Title</button>
+            </p>
+            <p>
+                <span :class="{ 'loading' : isLoading}">Loading status... </span><button @click="toggleLoading">Load / Unload</button>
+            </p>
+            
+
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var vm = new Vue({
+                data : {
+                    title : "Hey there!",
+                    newTitle : "",
+                    isLoading : false
+                },
+                el : "#root",
+                methods:{
+                    changeTitle(){
+                        this.title = this.newTitle;
+                        this.newTitle = "";
+                    },
+                    toggleLoading(){
+                        this.isLoading = !this.isLoading;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
