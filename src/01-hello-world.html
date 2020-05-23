@@ -5,16 +5,16 @@
     </head>
     <body>
         <div id="root">
-            <input type="text" v-model="message" /><br>
+            <input type="text" v-model="message"><br>
             Your message is : <strong>{{message}}</strong>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             var vm = new Vue({
+                el : "#root",
                 data : {
                     message : "Hello World!"
-                },
-                el : "#root"
+                }
             });
         </script>
     </body>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Computed</title>
+    </head>
+    <body>
+        <div id="root">
+            <p>
+                <input type="text" v-model="firstName"><br>
+                <input type="text" v-model="lastName"><br>
+                <div v-if="isValid">
+                    Your full name is {{fullName}}
+                </div>
+            </p>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var vm = new Vue({
+                el : "#root",
+                data : {
+                    firstName : "",
+                    lastName : ""
+                },
+                computed : {
+                    fullName(){
+                        return this.firstName   + " " + this.lastName;
+                    },
+                    isValid(){
+                        return this.firstName != "" && this.lastName != "";
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

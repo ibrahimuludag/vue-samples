@@ -11,8 +11,8 @@
     <body>
         <div id="root">
             <p>
-                <input type="text" v-model="newTitle" />
-                <button @click="changeTitle" :title="title" >Change Title</button>
+                <input type="text" v-model="newTitle">
+                <button @click="changeTitle" :title="title">Change Title</button>
             </p>
             <p>
                 <span :class="{ 'loading' : isLoading}">Loading status... </span><button @click="toggleLoading">Load / Unload</button>
@@ -25,12 +25,12 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             var vm = new Vue({
+                el : "#root",
                 data : {
                     title : "Hey there!",
                     newTitle : "",
                     isLoading : false
                 },
-                el : "#root",
                 methods:{
                     changeTitle(){
                         this.title = this.newTitle;
